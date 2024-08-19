@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchListings, addListing } from "./features/listing/listingSlice";
+import { fetchListings, addListing } from './store/features/listing/listingSlice';
+import { nanoid } from '@reduxjs/toolkit';
+
 
 function Home() {
     const dispatch = useDispatch();
