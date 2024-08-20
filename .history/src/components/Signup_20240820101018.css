@@ -1,0 +1,27 @@
+
+.signin-form {
+    width: 100%;
+    justify-content: center;
+    align-items: center;;
+}
+
+form input  {
+    width: 40%;
+    height: 5vh;
+    margin: 10px;
+    border-radius: 5px;
+    border-style: none;
+    background-color: rgba(28, 24, 255, 0.062);
+    
+}
+
+form button {
+    width: 2%;
+    height: 5vh;
+    margin: 10px;
+    border-radius: 5px;
+    border-style: none;
+    background-color: #61dafb;
+    color: white;
+    font-weight: bold;
+}

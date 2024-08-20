@@ -1,0 +1,10 @@
+
+
+.card {
+    align-self: center;
+    display: flex;
+    width: 90%;
+    border-style: inset;
+
+}
+

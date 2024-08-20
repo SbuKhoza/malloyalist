@@ -1,0 +1,11 @@
+
+
+.card {
+    display: flex;
+
+}
+
+form input {
+    width: 320px;
+    margin: 10px;
+}

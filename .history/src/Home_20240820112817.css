@@ -1,0 +1,14 @@
+
+
+.card {
+    
+    display: flex;
+    width: 90%;
+    border-style: inset;
+
+}
+
+form input {
+    border: 1px solid black;
+}
+
