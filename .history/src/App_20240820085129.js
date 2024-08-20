@@ -1,6 +1,6 @@
 import './App.css';
 import Home from './Home';
-import Sign from './Sign';
+import Sign from './Signup';
 import Log from './Log';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 

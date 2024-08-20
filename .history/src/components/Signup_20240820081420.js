@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { nanoid } from 'nanoid';
-
 
 function Signup() {
     const [username, setUsername] = useState('');
