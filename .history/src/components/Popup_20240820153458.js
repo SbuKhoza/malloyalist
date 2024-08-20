@@ -4,7 +4,7 @@ function Popup() {
   return (
     <div>
 
-        <div className='container'>
+<div className='container'>
                 <div className="card">
                     <form onSubmit={editingId ? handleUpdateListing : handleAddListing}>
                         <input 
@@ -38,7 +38,7 @@ function Popup() {
                 </div>
             </div>
       
-        </div>
+    </div>
   )
 }
 

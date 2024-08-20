@@ -76,7 +76,7 @@ function Home() {
     return (
         <div className="App">
 
-            <h1>Shop</h1>
+<h1>Shop</h1>
 
             <div className="main-container">
             
@@ -95,7 +95,7 @@ function Home() {
 
             <button className="Additem">Add</button>
 
-            {/* <div className='container'>
+            <div className='container'>
                 <div className="card">
                     <form onSubmit={editingId ? handleUpdateListing : handleAddListing}>
                         <input 
@@ -127,7 +127,7 @@ function Home() {
                         </button>
                     </form>
                 </div>
-            </div> */}
+            </div>
 
          </div> 
         </div>

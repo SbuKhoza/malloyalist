@@ -38,7 +38,7 @@ function Popup() {
                 </div>
             </div>
       
-        </div>
+    </div>
   )
 }
 

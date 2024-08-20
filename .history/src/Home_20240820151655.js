@@ -75,11 +75,8 @@ function Home() {
 
     return (
         <div className="App">
-
-            <h1>Shop</h1>
-
-            <div className="main-container">
             
+            <h1>Shop</h1>
 
             {myListing.map((listing) => (
                 <div key={listing.id} className="listing-item">
@@ -95,7 +92,7 @@ function Home() {
 
             <button className="Additem">Add</button>
 
-            {/* <div className='container'>
+            <div className='container'>
                 <div className="card">
                     <form onSubmit={editingId ? handleUpdateListing : handleAddListing}>
                         <input 
@@ -127,9 +124,7 @@ function Home() {
                         </button>
                     </form>
                 </div>
-            </div> */}
-
-         </div> 
+            </div>
         </div>
     );
 }

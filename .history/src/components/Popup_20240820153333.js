@@ -1,10 +1,4 @@
-import React from 'react'
-
-function Popup() {
-  return (
-    <div>
-
-        <div className='container'>
+<div className='container'>
                 <div className="card">
                     <form onSubmit={editingId ? handleUpdateListing : handleAddListing}>
                         <input 
@@ -37,16 +31,7 @@ function Popup() {
                     </form>
                 </div>
             </div>
-      
-        </div>
-  )
-}
 
-export default Popup
-
-
-
-
-        
+            export def
 
         
