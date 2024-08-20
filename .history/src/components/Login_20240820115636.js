@@ -14,7 +14,7 @@ function Login({ onLogin }) {
         if (response.data.length > 0) {
             
             onLogin(response.data[0]);
-            navigate('/Home'); 
+            navigate('/H'); 
         } else {
             
             alert('Invalid username or password');
@@ -23,23 +23,13 @@ function Login({ onLogin }) {
 
     return (
 
-        
-          
-
         <div class='login-form'>
-            <div className="signup-container">
-            <div className='sign-image'>
-              <img src="sign.png" alt="sign" width={200}height={200}/>
-            </div>  
-
             <h1> Login </h1>
         <form onSubmit={handleLogin}>
             <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
             <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
             <button type="submit">Login</button>
         </form>
-
-        </div>
         </div>
     );
 }

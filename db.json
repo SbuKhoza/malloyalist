@@ -1,5 +1,23 @@
 {
-    "listings": [],
-    "users": []
-  }
-  
+  "listings": [
+    {
+      "name": "milk",
+      "category": "dairy",
+      "quantity": "1",
+      "id": "2CoaP5xCsRR-DmELhyQih"
+    },
+    {
+      "id": "VJQdtBevMWtSRSMYCrkhj",
+      "name": "trgrjdgnlkgfd",
+      "category": "tehdaghb",
+      "quantity": "3"
+    }
+  ],
+  "users": [
+    {
+      "id": "Nv3WHv8Hl6gqiDqVGEq1x",
+      "username": "Malloya",
+      "password": "123456"
+    }
+  ]
+}

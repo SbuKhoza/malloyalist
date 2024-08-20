@@ -24,22 +24,18 @@ function Login({ onLogin }) {
     return (
 
         
-          
-
-        <div class='login-form'>
-            <div className="signup-container">
+        <div className="signup-container">
             <div className='sign-image'>
               <img src="sign.png" alt="sign" width={200}height={200}/>
-            </div>  
+            </div>    
 
+        <div class='login-form'>
             <h1> Login </h1>
         <form onSubmit={handleLogin}>
             <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
             <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
             <button type="submit">Login</button>
         </form>
-
-        </div>
         </div>
     );
 }
