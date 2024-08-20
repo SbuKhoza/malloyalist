@@ -1,5 +1,9 @@
 import React from 'react'
-import './Home.css';
+import './Home.class name {
+    constructor(parameters) {
+        
+    }
+}';
 
 function Popup() {
   return (

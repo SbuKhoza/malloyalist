@@ -1,5 +1,5 @@
 import React from 'react'
-import './Home.css';
+import Home from './src'
 
 function Popup() {
   return (
