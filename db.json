@@ -1,15 +1,15 @@
 {
   "listings": [
     {
-      "name": "milk",
-      "category": "dairy",
-      "quantity": "1",
-      "id": "2CoaP5xCsRR-DmELhyQih"
+      "id": "0ljnjRmco98VlbiVnx7vB",
+      "name": "gregfrg",
+      "category": "gvdfg",
+      "quantity": "1"
     },
     {
-      "id": "VJQdtBevMWtSRSMYCrkhj",
-      "name": "trgrjdgnlkgfd",
-      "category": "tehdaghb",
+      "id": "Fl_UE7kk1JBwVMsNQqKP7",
+      "name": "Ubhanana",
+      "category": "Izithelo",
       "quantity": "3"
     }
   ],
@@ -17,6 +17,11 @@
     {
       "id": "Nv3WHv8Hl6gqiDqVGEq1x",
       "username": "Malloya",
+      "password": "123456"
+    },
+    {
+      "id": "SgtaPp9bqc8uZsptJ_CBr",
+      "username": "Mahlatse",
       "password": "123456"
     }
   ]

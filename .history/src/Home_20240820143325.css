@@ -1,0 +1,24 @@
+
+
+.card {
+    
+    display: flex;
+    width: 90%;
+    border-style: inset;
+
+}
+
+.Additem {
+    width: 120px;
+    height: 5vh;
+    margin: 10px;
+    border-radius: 5px;
+    border-style: none;
+    background-color: #61dafb;
+    color: white;
+    font-weight: bold;
+}
+
+.listing-item {
+    width: ;
+}
