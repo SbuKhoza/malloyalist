@@ -1,53 +1,46 @@
-import React from 'react'
-import './Home.css';
+import React from 'react';
 
-function Popup() {
+
+function Popup({ isOpen, onClose, formData, handleChange, handleSubmit, editingId }) {
+  if (!isOpen) return null;
+
   return (
-    <div>
-
-        <div className='container'>
-                <div className="card">
-                    <form onSubmit={editingId ? handleUpdateListing : handleAddListing}>
-                        <input 
-                            type="text" 
-                            name="name"
-                            className="value" 
-                            placeholder="Item Name" 
-                            value={formData.name}
-                            onChange={handleChange} 
-                        />
-                        <input 
-                            type="text" 
-                            name="category"
-                            className="category" 
-                            placeholder="Category" 
-                            value={formData.category}
-                            onChange={handleChange} 
-                        />
-                        <input 
-                            type="number" 
-                            name="quantity"
-                            placeholder="Quantity" 
-                            value={formData.quantity}
-                            onChange={handleChange}
-                            min="0" 
-                        />
-                        <button type="submit" className="sav">
-                            {editingId ? "Update" : "Save"}
-                        </button>
-                    </form>
-                </div>
-            </div>
-      
+    <div className='popup-overlay' onClick={onClose}>
+      <div className='container' onClick={(e) => e.stopPropagation()}>
+        <div className="card">
+          <form onSubmit={handleSubmit}>
+            <input 
+              type="text" 
+              name="name"
+              className="value" 
+              placeholder="Item Name" 
+              value={formData.name}
+              onChange={handleChange} 
+            />
+            <input 
+              type="text" 
+              name="category"
+              className="category" 
+              placeholder="Category" 
+              value={formData.category}
+              onChange={handleChange} 
+            />
+            <input 
+              type="number" 
+              name="quantity"
+              placeholder="Quantity" 
+              value={formData.quantity}
+              onChange={handleChange}
+              min="1" 
+            />
+            <button type="submit" className="sav">
+              {editingId ? "Update" : "Save"}
+            </button>
+          </form>
         </div>
-  )
+      </div>
+    </div>
+  );
 }
 
-export default Popup
-
-
-
-
-        
-
-        
+export default Popup;
