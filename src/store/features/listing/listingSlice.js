@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk, nanoid } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const initialState = [];
@@ -13,6 +13,12 @@ export const addListing = createAsyncThunk('listing/addListing', async (newListi
     return response.data;
 });
 
+export const updateListing = createAsyncThunk('listing/updateListing', async (updatedListing) => {
+    const { id, ...data } = updatedListing;
+    const response = await axios.put(`http://localhost:5000/listings/${id}`, data);
+    return response.data;
+});
+
 export const listingSlice = createSlice({
     name: 'listing',
     initialState,
@@ -24,6 +30,12 @@ export const listingSlice = createSlice({
             })
             .addCase(addListing.fulfilled, (state, action) => {
                 state.push(action.payload);
+            })
+            .addCase(updateListing.fulfilled, (state, action) => {
+                const index = state.findIndex(listing => listing.id === action.payload.id);
+                if (index !== -1) {
+                    state[index] = action.payload;
+                }
             });
     }
 });

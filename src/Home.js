@@ -1,12 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchListings, addListing } from './store/features/listing/listingSlice';
+import { fetchListings, addListing, updateListing } from './store/features/listing/listingSlice';
 import { nanoid } from '@reduxjs/toolkit';
-
 
 function Home() {
     const dispatch = useDispatch();
     const myListing = useSelector((state) => state.listing);
+    const [editingId, setEditingId] = useState(null);
+    const [formData, setFormData] = useState({
+        name: '',
+        category: '',
+        quantity: ''
+    });
 
     useEffect(() => {
         dispatch(fetchListings());
@@ -17,12 +22,50 @@ function Home() {
         const form = e.target;
         const newListing = {
             id: nanoid(),
-            name: form.elements[0].value,
-            category: form.elements[1].value,
-            quantity: form.elements[2].value,
+            name: formData.name,
+            category: formData.category,
+            quantity: formData.quantity,
         };
         dispatch(addListing(newListing));
-        form.reset();
+        setFormData({ name: '', category: '', quantity: '' });
+    };
+
+    const handleEditClick = (listing) => {
+        setEditingId(listing.id);
+        setFormData({
+            name: listing.name,
+            category: listing.category,
+            quantity: listing.quantity
+        });
+    };
+
+    const handleUpdateListing = (e) => {
+        e.preventDefault();
+        const updatedListing = {
+            id: editingId,
+            ...formData,
+        };
+        dispatch(updateListing(updatedListing));
+        setEditingId(null);
+        setFormData({ name: '', category: '', quantity: '' });
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+
+        if (name === 'quantity') {
+            if (value >= 0) {
+                setFormData({
+                    ...formData,
+                    [name]: value
+                });
+            }
+        } else {
+            setFormData({
+                ...formData,
+                [name]: value
+            });
+        }
     };
 
     return (
@@ -34,16 +77,40 @@ function Home() {
                     <h2>{listing.name}</h2>
                     <p>Category: {listing.category}</p>
                     <p>Quantity: {listing.quantity}</p>
+                    <button onClick={() => handleEditClick(listing)}>Edit</button>
                 </div>
             ))}
 
             <div className='container'>
                 <div className="card">
-                    <form onSubmit={handleAddListing}>
-                        <input type="text" className="value" placeholder="Item Name" />
-                        <input type="text" className="category" placeholder="Category" />
-                        <input type="number" placeholder="Quantity" />
-                        <button type="submit" className="sav">Save</button>
+                    <form onSubmit={editingId ? handleUpdateListing : handleAddListing}>
+                        <input 
+                            type="text" 
+                            name="name"
+                            className="value" 
+                            placeholder="Item Name" 
+                            value={formData.name}
+                            onChange={handleChange} 
+                        />
+                        <input 
+                            type="text" 
+                            name="category"
+                            className="category" 
+                            placeholder="Category" 
+                            value={formData.category}
+                            onChange={handleChange} 
+                        />
+                        <input 
+                            type="number" 
+                            name="quantity"
+                            placeholder="Quantity" 
+                            value={formData.quantity}
+                            onChange={handleChange}
+                            min="0" 
+                        />
+                        <button type="submit" className="sav">
+                            {editingId ? "Update" : "Save"}
+                        </button>
                     </form>
                 </div>
             </div>
