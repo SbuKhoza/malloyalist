@@ -60,7 +60,7 @@ form input  {
     height: 5vh;
     margin: 10px;
     border-radius: 5px;
-    border-style: none;
+    border: 0.5px solid whitesmoke;
     color: whitesmoke;
     font-size: 20px;
     background-color: rgba(181, 180, 241, 0.062);
@@ -72,7 +72,7 @@ form button {
     height: 5vh;
     margin: 10px;
     border-radius: 5px;
-    border-style: none;
+    border: 0.5px solid whitesmoke;
     background-color: rgba(181, 180, 241, 0.062);
     color: white;
     font-weight: bold;
