@@ -103,15 +103,6 @@ function Home({ user }) {
         });
     };
 
-
-    // const handleChange = (e) => {
-    //     const { name, additional } = e.target;
-    //     setFormData({
-    //         ...formData,
-    //         [name]: additional
-    //     });
-    // };
-
     const handleAddClick = () => {
         setEditingId(null);
         setFormData({ name: '', category: '', quantity: '' });
@@ -140,10 +131,6 @@ function Home({ user }) {
     const handleSearchChange = (e) => {
         setSearchTerm(e.target.value);
     };
-
-    // const handleSearchChange = (e) => {
-    //     setSearchTerm(e.target.additional);
-    // };
 
     const handleCategoryFilterChange = (e) => {
         setCategoryFilter(e.target.value);

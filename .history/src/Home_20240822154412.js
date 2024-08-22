@@ -141,10 +141,6 @@ function Home({ user }) {
         setSearchTerm(e.target.value);
     };
 
-    // const handleSearchChange = (e) => {
-    //     setSearchTerm(e.target.additional);
-    // };
-
     const handleCategoryFilterChange = (e) => {
         setCategoryFilter(e.target.value);
     };

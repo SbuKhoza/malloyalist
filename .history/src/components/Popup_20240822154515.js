@@ -18,14 +18,14 @@ function Popup({ isOpen, onClose, formData, handleChange, handleSubmit, editingI
               value={formData.name}
               onChange={handleChange} 
             />
-            <input 
+            {/* <input 
               type="text" 
               name="category"
               className="category" 
               placeholder="Category" 
               value={formData.category}
               onChange={handleChange} 
-            />
+            /> */}
             <input 
               type="number" 
               name="quantity"
@@ -35,14 +35,14 @@ function Popup({ isOpen, onClose, formData, handleChange, handleSubmit, editingI
               min="1" 
             />
 
-            {/* <input 
+            <input 
               type="text" 
               name="name"
               className="additional" 
               placeholder="Adititional notes" 
               value={formData.name}
               onChange={handleChange} 
-            /> */}
+            />
 
             <button type="submit" className="sav">
               {editingId ? "Update" : "Save"}

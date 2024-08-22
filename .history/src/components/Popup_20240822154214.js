@@ -35,14 +35,14 @@ function Popup({ isOpen, onClose, formData, handleChange, handleSubmit, editingI
               min="1" 
             />
 
-            {/* <input 
+            <input 
               type="text" 
               name="name"
-              className="additional" 
+              className="ad" 
               placeholder="Adititional notes" 
               value={formData.name}
               onChange={handleChange} 
-            /> */}
+            />
 
             <button type="submit" className="sav">
               {editingId ? "Update" : "Save"}

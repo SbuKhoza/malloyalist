@@ -7,13 +7,11 @@ import Popup from './components/Popup';
 import Search from './components/Search';
 import './Home.css';
 
-//Functions 
-
 function Home({ user }) {
     const dispatch = useDispatch();  //sends the action to the store
     const navigate = useNavigate();  
     const myListing = useSelector((state) => state.listing);
-    const [isPopupOpen, setIsPopupOpen] = useState(false); //pop up initial state is false. until user searches.
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
     const [editingId, setEditingId] = useState(null);
     const [formData, setFormData] = useState({
         name: '',
@@ -103,15 +101,6 @@ function Home({ user }) {
         });
     };
 
-
-    // const handleChange = (e) => {
-    //     const { name, additional } = e.target;
-    //     setFormData({
-    //         ...formData,
-    //         [name]: additional
-    //     });
-    // };
-
     const handleAddClick = () => {
         setEditingId(null);
         setFormData({ name: '', category: '', quantity: '' });
@@ -123,7 +112,7 @@ function Home({ user }) {
     };
 
     const handleSortChange = () => {
-        const newSortOrder = sortOrder === 'A-Z' ? 'Z-A' : 'A-Z';  //sorts by name A-Z.
+        const newSortOrder = sortOrder === 'A-Z' ? 'Z-A' : 'A-Z';  //S
         setSortOrder(newSortOrder);
     };
 
@@ -141,10 +130,6 @@ function Home({ user }) {
         setSearchTerm(e.target.value);
     };
 
-    // const handleSearchChange = (e) => {
-    //     setSearchTerm(e.target.additional);
-    // };
-
     const handleCategoryFilterChange = (e) => {
         setCategoryFilter(e.target.value);
     };
@@ -157,7 +142,7 @@ function Home({ user }) {
                 <h1>Shopping List</h1>
                     <div className="profile"></div>
                     <div className="username">
-                        {user?.username}  
+                        {user?.username}
                     </div>
                     <div className="social"></div>
                     <div className="logout">
@@ -177,9 +162,6 @@ function Home({ user }) {
                             onChange={handleSearchChange}
                         />
                     </div>
-
-                        {/* buttons and forms */}
-                    
                     <div className="cont">
                         <h3>Add New Item</h3>
                         <button className="Additems" onClick={handleAddClick}>Add</button>

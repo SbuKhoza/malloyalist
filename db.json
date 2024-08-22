@@ -1,5 +1,18 @@
 {
-  "listings": [],
+  "listings": [
+    {
+      "name": "Iphone 17",
+      "category": "Electronics",
+      "quantity": "1",
+      "id": "qTtyzQCWTXnxK4bxAviMY"
+    },
+    {
+      "id": "JddwFX3OTUnFfDns7eYYs",
+      "name": "Masonja",
+      "category": "Food",
+      "quantity": "10"
+    }
+  ],
   "users": [
     {
       "id": "Nv3WHv8Hl6gqiDqVGEq1x",
@@ -14,6 +27,11 @@
     {
       "id": "ljzyvADJ4VCZJr4bn9fn9",
       "username": "sbudamalloya",
+      "password": "123456"
+    },
+    {
+      "id": "anfqvJvR3wmnLSXxBpk_2",
+      "username": "oscar",
       "password": "123456"
     }
   ]
