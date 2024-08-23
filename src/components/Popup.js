@@ -1,8 +1,6 @@
 import React from 'react';
 
-
-
-function Popup({ isOpen, onClose, formData, handleChange, handleSubmit, editingId }) {
+function Popup({ isOpen, onClose, formData, handleChange, handleSubmit, editingId, handleShare }) {
   if (!isOpen) return null;
 
   return (
@@ -34,18 +32,20 @@ function Popup({ isOpen, onClose, formData, handleChange, handleSubmit, editingI
               onChange={handleChange}
               min="1" 
             />
-
-            {/* <input 
+            <input 
               type="text" 
-              name="name"
+              name="additionalNotes"
               className="additional" 
-              placeholder="Adititional notes" 
-              value={formData.name}
+              placeholder="Additional Notes" 
+              value={formData.additionalNotes}
               onChange={handleChange} 
-            /> */}
+            />
 
             <button type="submit" className="sav">
               {editingId ? "Update" : "Save"}
+            </button>
+            <button type="button" className="share" onClick={handleShare}>
+              Share Category
             </button>
           </form>
         </div>

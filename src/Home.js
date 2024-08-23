@@ -7,20 +7,19 @@ import Popup from './components/Popup';
 import Search from './components/Search';
 import './Home.css';
 
-//Functions 
-
 function Home({ user }) {
-    const dispatch = useDispatch();  //sends the action to the store
+    const dispatch = useDispatch();  
     const navigate = useNavigate();  
     const myListing = useSelector((state) => state.listing);
-    const [isPopupOpen, setIsPopupOpen] = useState(false); //pop up initial state is false. until user searches.
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
     const [editingId, setEditingId] = useState(null);
     const [formData, setFormData] = useState({
         name: '',
         category: '',
-        quantity: ''
+        quantity: '',
+        additionalNotes: ''
     });
-    const [sortOrder, setSortOrder] = useState('A-Z');  //sorts by name from A-Z
+    const [sortOrder, setSortOrder] = useState('A-Z');
     const [searchTerm, setSearchTerm] = useState('');
     const [searchResults, setSearchResults] = useState([]);
     const [categoryFilter, setCategoryFilter] = useState('All');
@@ -30,7 +29,7 @@ function Home({ user }) {
         dispatch(fetchListings());
     }, [dispatch]);
 
-    useEffect(() => {  //search results function
+    useEffect(() => {  
         if (searchTerm) {
             const results = myListing.filter(listing =>
                 listing.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -38,7 +37,7 @@ function Home({ user }) {
             setSearchResults(results);
             setIsSearchPopupOpen(true); 
         } else {
-            setSearchResults([]);  //search results popup
+            setSearchResults([]);  
             setIsSearchPopupOpen(false); 
         }
     }, [searchTerm, myListing]);
@@ -53,19 +52,21 @@ function Home({ user }) {
             const updatedListing = {
                 ...existingListing,
                 quantity: formData.quantity,
+                additionalNotes: formData.additionalNotes
             };
             dispatch(updateListing(updatedListing));
         } else {
             const newListing = {
-                id: nanoid(), // using nanoid generating a unique id //
+                id: nanoid(), 
                 name: formData.name,
                 category: formData.category,
                 quantity: formData.quantity,
+                additionalNotes: formData.additionalNotes
             };
             dispatch(addListing(newListing));
         }
 
-        setFormData({ name: '', category: '', quantity: '' });
+        setFormData({ name: '', category: '', quantity: '', additionalNotes: '' });
         setIsPopupOpen(false);
     };
 
@@ -74,7 +75,8 @@ function Home({ user }) {
         setFormData({
             name: listing.name,
             category: listing.category,
-            quantity: listing.quantity
+            quantity: listing.quantity,
+            additionalNotes: listing.additionalNotes
         });
         setIsPopupOpen(true);
     };
@@ -87,7 +89,7 @@ function Home({ user }) {
         };
         dispatch(updateListing(updatedListing));
         setEditingId(null);
-        setFormData({ name: '', category: '', quantity: '' });
+        setFormData({ name: '', category: '', quantity: '', additionalNotes: '' });
         setIsPopupOpen(false);
     };
 
@@ -103,18 +105,9 @@ function Home({ user }) {
         });
     };
 
-
-    // const handleChange = (e) => {
-    //     const { name, additional } = e.target;
-    //     setFormData({
-    //         ...formData,
-    //         [name]: additional
-    //     });
-    // };
-
     const handleAddClick = () => {
         setEditingId(null);
-        setFormData({ name: '', category: '', quantity: '' });
+        setFormData({ name: '', category: '', quantity: '', additionalNotes: '' });
         setIsPopupOpen(true);
     };
 
@@ -123,8 +116,30 @@ function Home({ user }) {
     };
 
     const handleSortChange = () => {
-        const newSortOrder = sortOrder === 'A-Z' ? 'Z-A' : 'A-Z';  //sorts by name A-Z.
+        const newSortOrder = sortOrder === 'A-Z' ? 'Z-A' : 'A-Z';  
         setSortOrder(newSortOrder);
+    };
+
+    const handleShareCategory = (category) => {
+        const shareText = `Check out this category: ${category}`;
+        if (navigator.share) {
+            navigator.share({
+                title: 'Shared Category',
+                text: shareText,
+            }).then(() => {
+                console.log('Category shared successfully');
+            }).catch((error) => {
+                console.error('Error sharing category:', error);
+            });
+        } else {
+            // Fallback for browsers that don't support the Web Share API
+            navigator.clipboard.writeText(shareText).then(() => {
+                alert(`Category copied to clipboard: ${category}`);
+            }).catch((error) => {
+                console.error('Could not copy text:', error);
+                alert(shareText);
+            });
+        }
     };
 
     const sortedListings = myListing
@@ -140,10 +155,6 @@ function Home({ user }) {
     const handleSearchChange = (e) => {
         setSearchTerm(e.target.value);
     };
-
-    // const handleSearchChange = (e) => {
-    //     setSearchTerm(e.target.additional);
-    // };
 
     const handleCategoryFilterChange = (e) => {
         setCategoryFilter(e.target.value);
@@ -162,7 +173,6 @@ function Home({ user }) {
                     <div className="social"></div>
                     <div className="logout">
                         <button onClick={() => {
-                           
                             navigate('/');
                         }}>Logout</button>
                     </div>
@@ -178,8 +188,6 @@ function Home({ user }) {
                         />
                     </div>
 
-                        {/* buttons and forms */}
-                    
                     <div className="cont">
                         <h3>Add New Item</h3>
                         <button className="Additems" onClick={handleAddClick}>Add</button>
@@ -199,8 +207,10 @@ function Home({ user }) {
                                 <h2>{listing.name}</h2>
                                 <p>Category: {listing.category}</p>
                                 <p>Quantity: {listing.quantity}</p>
+                                <p>Notes: {listing.additionalNotes}</p>
                                 <button onClick={() => handleEditClick(listing)}>Edit</button>
                                 <button onClick={() => handleDeleteClick(listing.id)}>Delete</button>
+                                <button onClick={() => handleShareCategory(listing.category)}>Share</button> {/* Share button */}
                             </div>
                         ))}
                     </div>

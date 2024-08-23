@@ -1,16 +1,11 @@
 {
   "listings": [
     {
-      "name": "Iphone 17",
-      "category": "Electronics",
-      "quantity": "1",
-      "id": "qTtyzQCWTXnxK4bxAviMY"
-    },
-    {
-      "id": "JddwFX3OTUnFfDns7eYYs",
-      "name": "Masonja",
-      "category": "Food",
-      "quantity": "10"
+      "id": "wA3qnmAfq1e-GD9ybvU99",
+      "name": "",
+      "category": "",
+      "quantity": "",
+      "additionalNotes": ""
     }
   ],
   "users": [
